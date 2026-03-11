@@ -1,4 +1,4 @@
-# CYSE 411 – Threat Modeling and Risk Evaluation Assignment
+# Threat Modeling and Risk Evaluation Assignment
 
 ## Real-World Inspired Case: SQL Injection in a University Portal
 
@@ -311,3 +311,9 @@ Corrective
 4. What architectural changes could eliminate this vulnerability class?
 
 ---
+
+## Instructor Solution
+
+The instructor solution for this assignment is available here:
+
+[Instructor Solution](ANSWER_EXE2.md)
