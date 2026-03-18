@@ -69,3 +69,63 @@ if (req.body.csrfToken !== req.session.csrfToken)
 
 🔗 Reference: https://www.npmjs.com/package/csurf
 
+---
+
+## 2️⃣ Weak Password Handling
+
+### ❌ Problem
+```SQL
+SELECT * FROM users WHERE username=? AND password=?
+```
+
+- Passwords stored in plaintext
+
+- Easily compromised if database leaks
+
+
+### ✅ Fix Implemented
+```SQL
+const match = await bcrypt.compare(password, user.password);
+```
+
+✔ Explanation
+
+- Passwords are hashed using bcrypt
+
+- Even if database leaks → passwords are not directly exposed
+
+
+📌 Key Insight: Never store passwords — store hashes.
+
+
+🔗 Reference: https://www.npmjs.com/package/bcrypt
+
+---
+
+## 3️⃣ Session Fixation
+
+### ❌ Problem
+
+```JavaScript
+req.session.user = username;
+```
+
+- Session ID remains the same after login
+
+- Attacker can predefine session ID
+
+### ✅ Fix Implemented
+
+```JavaScript
+req.session.regenerate(() => { ... });
+
+```
+
+✔ Explanation
+
+- Generates a new session after login
+
+- Prevents attacker from reusing a known session ID
+
+📌 Key Insight: Authentication must create a new trusted session.
+
