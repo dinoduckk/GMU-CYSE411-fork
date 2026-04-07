@@ -31,46 +31,6 @@ The application contains:
 
 ---
 
-# SEMGRESP Rules Design Tutorial
-
-## 1) How to create customize rules using SEMGRESP
-
-A Semgrep rule is essentially: “A structured pattern + logic that finds insecure code and explains why it’s bad.”
-
-It works at the AST / semantic level, not just regex.
-
-A rule answers:
-- What code pattern am I looking for?
-- Under what conditions is it dangerous?
-- What should the developer do instead?
-
-## 2. Basic Rule Structure
-
-A Semgrep rule is written in YAML:
-```yaml
-rules:
-  - id: my-first-rule
-    patterns:
-      - pattern: eval($X)
-    message: Avoid using eval()
-    languages: [javascript]
-    severity: ERROR
-
-```
-### Key Fields
-
-| Field                  | Purpose                                  |
-|------------------------|------------------------------------------|
-| `id`                   | Unique rule name                         |
-| `pattern` / `patterns` | Defines what code pattern to detect      |
-| `message`              | Message shown to the developer           |
-| `languages`            | Target languages (JS, Python, Java, etc) |
-| `severity`             | Issue level (INFO, WARNING, ERROR)       |
-
----
-
-
-
 ## Tasks
 
 ### Task 1 – Basic Pipeline
@@ -143,19 +103,6 @@ Modify at least one workflow to:
 
 ---
 
-## Autograder
-
-Run:
-python tests/grader.py
-
----
-
-## Deliverables
-
-- 5 workflow YAML files
-- 1 custom Semgrep rule
-
----
 
 ## Key Insight
 
