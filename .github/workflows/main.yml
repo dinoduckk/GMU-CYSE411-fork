@@ -1,4 +1,4 @@
-name: SAST with Semgrep
+name: SAST with Semgrep my works
 
 on:
   push:
